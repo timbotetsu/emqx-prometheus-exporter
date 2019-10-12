@@ -1,0 +1,11 @@
+version: '3'
+services:
+  emqx_exporter:
+    image: timbotetsu/emqx_exporter:1.0
+    container_name: emqx_exporter
+    environment:
+      - EMQ_USERNAME=username
+      - EMQ_PASSWORD=password
+    ports:
+      - "9540:9540"
+    command: /emqx_exporter --emq.uri=http://emqx:8080 --emq.api-version=v3 --emq.node=emqx@emqx
